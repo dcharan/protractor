@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo $1 $2
+echo "Printing the value passed from make $1 $2"
