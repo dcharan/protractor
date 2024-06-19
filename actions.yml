@@ -1,0 +1,24 @@
+# This is a basic workflow to help you get started with Actions
+
+name: 'Hello World'
+description: 'Greet someone'
+
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+runs:
+  using: "composite"
+  steps:
+    - name: Set GitHub Path
+      run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+      shell: bash
+      env:
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+
+    - name: Run goodbye.sh
+      shell: bash
+      run: |
+        cd files
+        VAR_TO_PRINT=passed_value \
+        make print_target
