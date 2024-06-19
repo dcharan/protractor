@@ -18,5 +18,8 @@ jobs:
 
       - name: setup the tags
         run: |
-            echo ${{ inputs.image_name}}
-            echo ${{ inputs.tag }}
+          echo ${{ inputs.image_name }}
+          echo ${{ inputs.tag }}
+
+      - name: echo files
+        run: ls -la        
