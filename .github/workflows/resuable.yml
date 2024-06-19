@@ -1,0 +1,22 @@
+name: nested child workflow
+on:
+#   push:
+#     branches: [ "master" ]
+  workflow_call:
+    inputs:
+      image_name:
+        required: true
+        type: string
+      tag:
+        type: string  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup the tags
+        run: |
+            echo ${{ inputs.image_name}}
+            echo ${{ inputs.tag }}
