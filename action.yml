@@ -18,7 +18,4 @@ runs:
 
     - name: Run goodbye.sh
       shell: bash
-      run: |
-        cd files
-        VAR_TO_PRINT=passed_value \
-        make print_target
+      run: print.sh hello
