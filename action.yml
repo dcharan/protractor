@@ -18,4 +18,4 @@ runs:
 
     - name: Run goodbye.sh
       shell: bash
-      run: ./print.sh hello-from-parent
+      run: print.sh hello-from-parent
