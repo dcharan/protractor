@@ -26,5 +26,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: invoke a make target
         run: |
+          cd files
           VAR_TO_PRINT=passed_value \
           make print_target
