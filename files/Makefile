@@ -1,6 +1,5 @@
-VAR_TO_PRINT?=hello
+VAR_TO_PRINT?= hello
 
 print_target:
-	@echo "calling print" \
+	@echo "calling print" 
 	./print.sh $(VAR_TO_PRINT)
-
