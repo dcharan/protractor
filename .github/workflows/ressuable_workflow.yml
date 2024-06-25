@@ -22,4 +22,9 @@ jobs:
         run: |
           pwd
           ls -la      
-          ls -la ./scripts
+
+      - name: ReusableAction
+        uses: dcharan/reusable_actions/.github/custom_reusable_actions
+        with:
+          action_input: 'Mona the Octocat'
+           
