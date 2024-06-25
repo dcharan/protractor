@@ -24,7 +24,7 @@ jobs:
           ls -la      
 
       - name: ReusableAction
-        uses: dcharan/reusable_actions/.github/custom_reusable_actions
+        uses: dcharan/reusable_actions/.github/custom_reusable_actions@main
         with:
           action_input: 'Mona the Octocat'
            
