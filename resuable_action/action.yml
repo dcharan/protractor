@@ -23,4 +23,4 @@ runs:
 
     - name: Run goodbye.sh
       shell: bash
-      run: print.sh ${{ inputs.hello_world_var }}
+      run: print.sh "${{ inputs.hello_world_var }}"
