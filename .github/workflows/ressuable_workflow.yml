@@ -20,5 +20,6 @@ jobs:
 
       - name: list files
         run: |
+          pwd
           ls -la      
           ls -la ./scripts
