@@ -17,15 +17,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Set if its prod or not
+        id: set-enviro
+        run: |
+          if [[ "${{ github.event.inputs.environment }}" == "prod" || "${{ github.event.inputs.environment }}" == "prd" ]]; then
+            echo "::set-output name=isProd::true"
+          else
+            echo "::set-output name=isProd::false"
+          fi
 
       - name: Output the input value
         run: |
-          echo "The node version to use is: ${{ inputs.node }}  ${{ inputs.enviro }}"
-
-      - name: list files
-        run: |
-          pwd
-          ls -la      
+          echo "The node version to use is: ${{ inputs.node }}  ${{ inputs.enviro }} ${{ fromJSON(step.set-enviro.isProd)}}"          
 
       - name: ReusableAction
         uses: dcharan/reusable_actions/.github/custom_reusable_actions@main
