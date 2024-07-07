@@ -30,8 +30,10 @@ jobs:
       - name: Output the input value
         run: |
           echo "The node version to use is: ${{ inputs.node }}  ${{ inputs.enviro }}"
-          env
-          echo "Enviro is set to: ${{ env.isProd }}"
+          echo env.isProd
+          if env.isProd; then
+            echo "yes its prod"
+          fi
            
       - name: ReusableAction
         uses: dcharan/reusable_actions/.github/custom_reusable_actions@main
