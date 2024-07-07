@@ -21,7 +21,7 @@ jobs:
       - name: Set if its prod or not
         id: set-enviro
         run: |
-          if [[ "${{ github.event.inputs.environment }}" == "prod" || "${{ github.event.inputs.environment }}" == "prd" ]]; then
+          if [[ "${{ github.event.inputs.enviro }}" == "prod" || "${{ github.event.inputs.enviro }}" == "prd" ]]; then
             echo "isProd=true" >> $GITHUB_OUTPUT
           else
             echo "isProd=FALSE" >> $GITHUB_OUTPUT
