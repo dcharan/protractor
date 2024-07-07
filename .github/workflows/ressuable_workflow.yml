@@ -21,7 +21,7 @@ jobs:
       - name: Convert enviro to boolean
         id: convert-enviro
         run: |
-          if [ "${{ inputs.enviro }}" = "prod" ]; then
+          if [[ "${{ inputs.enviro }}" = "prod" || "${{ inputs.enviro }}" = "prd" ]]; then
             echo "isProd=true" >> $GITHUB_ENV
           else
             echo "isProd=false" >> $GITHUB_ENV
