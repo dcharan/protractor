@@ -6,6 +6,10 @@ on:
       node:
         required: true
         type: string
+      enviro:
+        required: true
+        type: string
+     
 
 jobs:
   build:
@@ -16,7 +20,7 @@ jobs:
 
       - name: Output the input value
         run: |
-          echo "The node version to use is: ${{ inputs.node }}"
+          echo "The node version to use is: ${{ inputs.node }}  ${{ inputs.enviro }}"
 
       - name: list files
         run: |
