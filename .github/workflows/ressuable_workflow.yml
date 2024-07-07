@@ -7,8 +7,9 @@ on:
         required: true
         type: string
       enviro:
-        required: true
-        type: string
+        required: false
+        default: false
+        type: boolean
      
 
 jobs:
@@ -18,30 +19,30 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Convert enviro to boolean
-        id: convert-enviro
-        run: |
-          if [[ "${{ inputs.enviro }}" = "prod" || "${{ inputs.enviro }}" = "prd" ]]; then
-            echo "isProd=true" >> $GITHUB_ENV
-            echo "isProdSt='true'" >> $GITHUB_ENV
-          else
-            echo "isProd=false" >> $GITHUB_ENV
-            echo "isProdSt='false'" >> $GITHUB_ENV
-          fi
+      # - name: Convert enviro to boolean
+      #   id: convert-enviro
+      #   run: |
+      #     if [[ "${{ inputs.enviro }}" = "prod" || "${{ inputs.enviro }}" = "prd" ]]; then
+      #       echo "isProd=true" >> $GITHUB_ENV
+      #       echo "isProdSt='true'" >> $GITHUB_ENV
+      #     else
+      #       echo "isProd=false" >> $GITHUB_ENV
+      #       echo "isProdSt='false'" >> $GITHUB_ENV
+      #     fi
           
       - name: Output the input value
         run: |
           echo "The node version to use is: ${{ inputs.node }}  ${{ inputs.enviro }}"
-          echo ${{ env.isProd }}
-          echo ${{ env.isProdSt }}
+          echo ${{ inputs.enviro }}
+          # echo ${{ env.isProdSt }}
           
-          if ${{ env.isProd }}; then
+          if ${{ inputs.enviro  }}; then
             echo "yes its isProd"
           fi
 
-          if ${{ env.isProdSt }}; then
-            echo "yes its isProdSt"
-          fi
+          # if ${{ env.isProdSt }}; then
+          #   echo "yes its isProdSt"
+          # fi
            
       - name: ReusableAction
         uses: dcharan/reusable_actions/.github/custom_reusable_actions@main
