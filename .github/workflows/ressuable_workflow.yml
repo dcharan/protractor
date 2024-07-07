@@ -22,9 +22,9 @@ jobs:
         id: set-enviro
         run: |
           if [[ "${{ github.event.inputs.environment }}" == "prod" || "${{ github.event.inputs.environment }}" == "prd" ]]; then
-            echo "isProd=true" >> $GITHIB_OUTPUT
+            echo "isProd=true" >> $GITHUB_OUTPUT
           else
-            echo "isProd=FALSE" >> $GITHIB_OUTPUT
+            echo "isProd=FALSE" >> $GITHUB_OUTPUT
           fi
 
       - name: Output the input value
