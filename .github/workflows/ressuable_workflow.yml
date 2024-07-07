@@ -26,6 +26,7 @@ jobs:
             echo "isProdSt='true'" >> $GITHUB_ENV
           else
             echo "isProd=false" >> $GITHUB_ENV
+            echo "isProdSt='false'" >> $GITHUB_ENV
           fi
           
       - name: Output the input value
